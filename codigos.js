@@ -1,29 +1,50 @@
 console.log("debug do codigo");
 
-function capturarDados() {
+function validaCampoSenha(event) {
+  console.log(event);
+}
+
+document.addEventListener("change", validaCampoSenha);
+
+function toWindowHome() {
+  window.location.href = "http://127.0.0.1:5500/principal.html";
+}
+
+function capturarDados(event) {
   console.log("você clicou no botão capturar dados");
 
-  const valorCampoNome = document.getElementById("campo-nome");
-  console.log("nome: ", valorCampoNome.value);
+  const valorCampoEmail = document.getElementById("campo-email");
+  const valorCampoSenha = document.getElementById("campo-senha");
 
   // verificar se o campo nome tem valor
-  if (valorCampoNome.value.length == 0) {
-    alert("campo nome é obrigatório!");
+  if (valorCampoEmail.value.length == 0) {
+    const alertaEmail = document.getElementById("alerta-email");
+
+    alertaEmail.style.display = "block";
 
     return;
   }
 
-  // maior >
-  // menor <
+  if (valorCampoSenha.value.length < 3) {
+    const alertaSenha = document.getElementById("alerta-senha");
 
-  if (valorCampoNome.value.length < 3) {
-    alert("campo nome precisa ter no minimo 3 letras");
+    alertaSenha.style.display = "block";
 
     return;
   }
 
-  // alert("cadastro realizado com sucesso!");
-  const divCadastroOk = document.getElementById("cadastro-ok");
-  divCadastroOk.style.display = "block";
-  divCadastroOk.style.color = "green";
+  window.location.href = "http://127.0.0.1:5500/principal.html";
+}
+
+function changeTypeInput() {
+  const campoSenha = document.getElementById("campo-senha");
+  const icone = document.getElementById("icon-eye");
+
+  if (campoSenha.type == "password") {
+    campoSenha.type = "text";
+    icone.className = "fa-regular fa-eye";
+  } else {
+    campoSenha.type = "password";
+    icone.className = "fa-regular fa-eye-slash";
+  }
 }

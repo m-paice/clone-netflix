@@ -4,90 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meu Projeto</title>
-
-    <script src="./codigos.js"></script>
-    <style>
-      *,
-      body {
-        margin: 0;
-        padding: 0;
-
-        font-family: sans-serif;
-      }
-
-      input::placeholder {
-        color: gray;
-      }
-    </style>
-  </head>
-  <body style="background-color: black; padding: 25px">
-    <img
-      style="width: 130px; margin-left: -30px; margin-top: -30px"
-      src="./netflix.png"
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
+    <script src="./codigos.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <img src="./netflix.png" />
 
-    <div style="display: flex; flex-direction: column">
-      <h1 style="color: white; margin-bottom: 14px">Entrar</h1>
-      <input
-        style="
-          margin-bottom: 14px;
-          padding: 10px;
-          border-top: 0;
-          border-left: 0;
-          border-right: 0;
-          border-radius: 5px;
-          border-color: rgb(232, 124, 3);
-          background-color: #333;
-          color: white;
-          outline: none;
-        "
-        id="campo-email"
-        placeholder="Digite seu e-mail"
-        type="email"
-      />
-      <span
-        style="color: rgb(232, 124, 3); font-size: 12px; margin-bottom: 14px"
-        >Informe um e-mail ou um telefone válido</span
-      >
+    <form action="#">
+      <div class="wrapper">
+        <h1 class="title">Entrar</h1>
 
-      <input
-        style="
-          margin-bottom: 14px;
-          padding: 10px;
-          border-top: 0;
-          border-left: 0;
-          border-right: 0;
-          border-radius: 5px;
-          border-color: rgb(232, 124, 3);
-          background-color: #333;
-          color: white;
-          outline: none;
-        "
-        id="campo-senha"
-        placeholder="Digite seu senha"
-        type="password"
-      />
-      <span
-        style="color: rgb(232, 124, 3); font-size: 12px; margin-bottom: 25px"
-        >A senha deve ter entre 4 a 60 caracteres</span
-      >
-    </div>
+        <input
+          class="input-default"
+          id="campo-email"
+          placeholder="Digite seu e-mail"
+        />
 
-    <button
-      style="
-        border: none;
-        color: white;
-        background-color: #e50914;
-        width: 100%;
-        height: 40px;
-        font-weight: bold;
-        font-size: 15px;
-        border-radius: 5px;
-      "
-      onclick="capturarDados()"
-    >
-      Entrar
-    </button>
+        <span id="alerta-email" class="warning" style="display: none"
+          >Informe um e-mail ou um telefone válido</span
+        >
+
+        <div class="wrapper-icon">
+          <input
+            class="input-default"
+            id="campo-senha"
+            placeholder="Digite seu senha"
+            type="password"
+            onchange="validaCampoSenha()"
+          />
+          <i
+            onclick="changeTypeInput()"
+            style="color: #fff"
+            class="fa-regular fa-eye"
+            id="icon-eye"
+          ></i>
+        </div>
+        <span id="alerta-senha" class="warning" style="display: none"
+          >A senha deve ter entre 4 a 60 caracteres</span
+        >
+      </div>
+
+      <button class="btn-enter" type="button" onclick="capturarDados()">
+        Entrar
+      </button>
+      <a href="./principal.html"> Ir para outra tela </a>
+    </form>
 
     <div id="cadastro-ok" style="display: none">
       Parabens, cadastro criado com sucesso!
